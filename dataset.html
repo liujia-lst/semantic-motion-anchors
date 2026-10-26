@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>SEMANTIX Dataset · Semantic Gestures</title>
+  <meta name="description" content="SEMANTIX: dataset overview, annotation, construction and examples.">
+  <link rel="icon" href="images/logos/mpi_favicon.png">
+  <link rel="stylesheet" href="css/project.css">
+  <link rel="stylesheet" href="css/dataset-construction.css">
+  <link rel="stylesheet" href="css/academic.css">
+</head>
+<body class="site-draft">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="paper-nav">
+    <nav aria-label="Main navigation"><a href="index.html">Project</a><a href="dataset.html" aria-current="page">SEMANTIX</a><a href="index.html#explore-more">Explore more</a></nav>
+  </header>
+  <main id="main">
+    <section class="hero dataset-hero page-shell">
+      <p class="eyebrow">Dataset · Semantic gesture understanding</p>
+      <h1>SEMANTIX</h1>
+      <p class="dataset-tagline">Gesture form. Communicative intent.</p>
+      <p class="hero-summary">Human-annotated gesture clips with descriptions of physical form and communicative intent.</p>
+      <div class="hero-actions">
+        <a class="action" href="https://huggingface.co/datasets/aboots/SEMANTIX" target="_blank" rel="noopener"><span class="resource-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><ellipse cx="10" cy="4" rx="7" ry="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M3 4v11c0 3.5 14 3.5 14 0V4 M3 9c0 3.5 14 3.5 14 0" stroke="currentColor" stroke-width="1.5"/></svg></span>Dataset on Hugging Face</a>
+        <a class="action" href="https://arxiv.org/pdf/2605.30608" target="_blank" rel="noopener"><span class="resource-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M5 2h7l4 4v12H5V2Z M12 2v5h4 M8 11h5 M8 14h5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span>Paper</a>
+      </div>
+      <p class="hero-secondary"><a href="index.html">Back to Semantic Motion Anchors →</a></p>
+    </section>
+    <div class="page-shell">
+      <p class="draft-note"><span class="draft-dot" aria-hidden="true"></span>Working draft · Example videos and corresponding annotations are pending.</p>
+      <nav class="section-nav" aria-label="On this page"><a href="#construction">Construction</a><a href="#annotation">Annotation</a><a href="#anchor-construction">Anchor generation</a><a href="#statistics">Statistics</a><a href="#examples">Examples</a><a href="#resources">Resources</a></nav>
+      <!-- Dataset annotation and automatic anchor generation are separate processes. -->
+      <section id="construction" class="content-section">
+        <div class="section-heading"><span class="section-number">01</span><h2>How SEMANTIX is constructed</h2></div>
+        <p class="lead construction-intro">Human reference descriptions of movement and meaning, grounded in gesture clips and speech.</p>
+        <figure class="construction-figure" aria-labelledby="construction-caption">
+          <div class="construction-body">
+            <p class="construction-label">Source clips</p>
+            <div class="dataset-sources">
+              <div class="dataset-source"><div class="source-title"><strong>778</strong><h3>TED Expressive</h3></div><p>Previously annotated gesture regions from 10 videos, paired with transcript segments.</p></div>
+              <span class="source-plus" aria-hidden="true">+</span>
+              <div class="dataset-source"><div class="source-title"><strong>100</strong><h3>BEAT2</h3></div><p>Semantic gesture samples annotated using the same schema.</p></div>
+            </div>
+            <p class="construction-label workflow-label">Human annotation workflow</p>
+            <ol class="human-flow" aria-label="Human annotation and guideline development">
+              <li><span class="construction-step">01</span><h3>Draft 231 TED annotations</h3><p>Describe physical form and intent.</p></li>
+              <li><span class="construction-step">02</span><h3>Review & refine guidelines</h3><p>A second expert accepts or revises each initial description.</p></li>
+              <li><span class="construction-step">03</span><h3>Complete annotation</h3><p>Label the remaining TED clips and 100 BEAT2 samples.</p></li>
+            </ol>
+            <div class="construction-connector" aria-hidden="true">↓</div>
+            <div class="dataset-output"><div><span class="construction-label">SEMANTIX</span><strong>878 human-annotated clips</strong></div><div class="description-pair"><span class="physical-label">Physical form</span><span aria-hidden="true">+</span><span class="intent-label">Communicative intent</span></div></div>
+          </div>
+          <figcaption id="construction-caption">The 231 reviewed examples are included in the 778 TED clips. <a href="https://arxiv.org/pdf/2605.30608#page=5" target="_blank" rel="noopener">Source: §4.1, pp. 5–6</a></figcaption>
+        </figure>
+      </section>
+      <section id="annotation" class="content-section">
+        <div class="section-heading"><span class="section-number">02</span><h2>Two complementary descriptions</h2></div>
+        <div class="two-columns annotation-grid">
+          <article class="annotation-panel physical-panel"><span class="label physical-label">Physical form</span><h3>What do the hands and arms do?</h3><p>Handedness, hand shape, orientation, position and movement.</p></article>
+          <article class="annotation-panel intent-panel"><span class="label intent-label">Communicative intent</span><h3>What does the gesture convey?</h3><p>The meaning of the gesture in its spoken context.</p></article>
+        </div>
+      </section>
+      <section id="anchor-construction" class="content-section">
+        <div class="section-heading"><span class="section-number">03</span><h2>Automatic motion anchor generation</h2></div>
+        <p class="section-intro">Automatic descriptions support model training; SEMANTIX provides human references for evaluation.</p>
+        <figure class="generation-figure" aria-labelledby="generation-caption">
+          <ol class="generation-flow" aria-label="Automatic semantic anchor generation">
+            <li><span class="construction-step">01</span><h3>Tokenize 3D motion</h3><div class="token-streams" aria-hidden="true"><span><i></i><i></i><i></i><i></i></span><span><i></i><i></i><i></i><i></i></span></div><p>Separate body and hand streams.</p></li>
+            <li><span class="construction-step">02</span><h3>Describe primitives</h3><p>Decode tokens, extract geometric attributes and apply text templates.</p></li>
+            <li><span class="construction-step">03</span><h3>Assemble a narrative</h3><p>Join descriptions in temporal order.</p></li>
+            <li><span class="construction-step">04</span><h3>Ground in speech</h3><span class="speech-input">+ Transcript context</span><p>LLM reasoning checks handedness, motion, intent and consistency.</p></li>
+          </ol>
+          <div class="generated-anchor"><span class="generated-arrow" aria-hidden="true">↓</span><strong>Generated semantic anchor</strong><div class="description-pair"><span class="physical-label">Physical form</span><span aria-hidden="true">+</span><span class="intent-label">Communicative intent</span></div></div>
+          <figcaption id="generation-caption"><a href="https://arxiv.org/pdf/2605.30608#page=3" target="_blank" rel="noopener">§3.1</a> · <a href="https://arxiv.org/pdf/2605.30608#page=11" target="_blank" rel="noopener">Appendices A.1–A.3</a></figcaption>
+        </figure>
+        <a class="text-link" href="index.html#method">Return to the method overview <span aria-hidden="true">→</span></a>
+      </section>
+      <section id="statistics" class="content-section">
+        <div class="section-heading"><span class="section-number">04</span><h2>Dataset at a glance</h2></div>
+        <div class="stats-grid"><div><strong>878</strong><span>Annotated gesture clips</span></div><div><strong>778</strong><span>TED clips</span></div><div><strong>100</strong><span>BEAT2 clips</span></div></div>
+        <p class="source-note">Counts reported in <a href="https://arxiv.org/pdf/2605.30608#page=6" target="_blank" rel="noopener">the paper, §4.1</a>.</p>
+      </section>
+      <!-- The paper's explanatory anchor example is shown until a verified dataset sample is available. -->
+      <section id="examples" class="content-section">
+        <div class="section-heading"><span class="section-number">05</span><h2>Explore an example</h2></div>
+        <p class="example-notice">The text below is the paper’s explanatory anchor example (§3.1), split into form and intent for display. It is not a SEMANTIX sample annotation. Dataset video and annotation pending.</p>
+        <div class="example-grid">
+          <div class="media-placeholder example-media"><span class="placeholder-mark" aria-hidden="true">▧</span><strong>Gesture video</strong><span>Verified sample to be added</span></div>
+          <div class="example-description"><p class="eyebrow">Paper example · §3.1</p><h3>Movement and meaning, together</h3>
+            <p><span class="label physical-label">Physical form</span><br><span class="physical-highlight">Right hand rises to chest level with open palm.</span></p>
+            <p><span class="label intent-label">Communicative intent</span><br><span class="intent-highlight">Emphasizing the increase described in speech.</span></p>
+            <p class="source-note">From <a href="https://arxiv.org/pdf/2605.30608v3#page=4" target="_blank" rel="noopener">Suresh et al., §3.1, p. 4</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>. Dataset video, transcript and annotation pending.</p>
+          </div>
+        </div>
+      </section>
+      <section id="resources" class="content-section">
+        <div class="section-heading"><span class="section-number">06</span><h2>Resources & citation</h2></div>
+        <div class="resources-list"><div><h3>Dataset access</h3><p><a href="https://huggingface.co/datasets/aboots/SEMANTIX" target="_blank" rel="noopener">Visit SEMANTIX on Hugging Face ↗</a></p></div><div><h3>Paper & citation</h3><p><a href="https://arxiv.org/pdf/2605.30608" target="_blank" rel="noopener">Read the paper</a> · <a href="index.html#citation">View and copy the BibTeX citation</a></p></div></div>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="page-shell footer-inner"><span>Semantic Motion Anchors · SEMANTIX</span><span>Page layout inspired by <a href="https://nerfies.github.io/" target="_blank" rel="noopener">Nerfies</a> and <a href="https://anisha0325.github.io/MUStReason-Project/" target="_blank" rel="noopener">MUStReason</a>.</span><span class="footer-credit">Earlier layout adapted from <a href="https://vcai.mpi-inf.mpg.de/projects/RAG-Gesture/">RAG-Gesture</a> · Spatial by <a href="https://templated.co/">TEMPLATED</a> · <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a></span></div></footer>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>Semantic Motion Anchors · Semantic Gestures</title>
+  <meta name="description" content="Semantic Motion Anchors: research overview and the SEMANTIX dataset.">
+  <link rel="icon" href="images/logos/mpi_favicon.png">
+  <link rel="stylesheet" href="css/project.css">
+  <link rel="stylesheet" href="css/motivation.css">
+  <link rel="stylesheet" href="css/method.css">
+  <link rel="stylesheet" href="css/explore-more.css">
+  <script src="js/project.js" defer></script>
+  <link rel="stylesheet" href="css/academic.css">
+</head>
+<body class="site-draft">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="paper-nav">
+    <nav aria-label="Main navigation"><a href="index.html" aria-current="page">Project</a><a href="dataset.html">SEMANTIX</a><a href="index.html#explore-more">Explore more</a></nav>
+  </header>
+  <main id="main">
+    <!-- STEP 1: Title, authors and resource links. -->
+    <section class="hero page-shell">
+      <h1>Semantic Motion Anchors:<span class="title-subline">Bridging Motion and Meaning<br class="desktop-break"> in Co-Speech Gestures</span></h1>
+      <p class="publication-venue">NeurIPS 2026</p>
+      <p class="authors">Varsha Suresh<sup>1,*</sup> · Mohammad Mahdi Abootorabi<sup>3,4,5,†,*</sup> · Mohamed Salman<sup>1</sup><br>
+        M. Hamza Mughal<sup>2</sup> · Christian Theobalt<sup>1,2</sup> · Ashwin Ram<sup>1</sup> · Jürgen Steimle<sup>1</sup> · Vera Demberg<sup>1,2</sup></p>
+      <p class="affiliations"><sup>1</sup>Saarland University &nbsp; <sup>2</sup>MPI for Informatics, Saarland Informatics Campus<br>
+        <sup>3</sup>University of British Columbia &nbsp; <sup>4</sup>Vector Institute &nbsp; <sup>5</sup>Zuse School ELIZA<br><span>* Equal contribution</span></p>
+      <details class="source-note author-funding"><summary>Author funding</summary><p><sup>†</sup>This author is supported by the Konrad Zuse School of Excellence in Learning and Intelligent Systems (ELIZA) through the DAAD programme Konrad Zuse Schools of Excellence in Artificial Intelligence, sponsored by the Federal Ministry of Education and Research.</p></details>
+      <div class="hero-actions">
+        <a class="action" href="https://arxiv.org/pdf/2605.30608" target="_blank" rel="noopener"><span class="resource-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M5 2h7l4 4v12H5V2Z M12 2v5h4 M8 11h5 M8 14h5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span>Paper</a>
+        <a class="action" href="https://github.com/aboots/Semantic_Motion_Anchors" target="_blank" rel="noopener"><span class="resource-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="m6 5-5 5 5 5 M14 5l5 5-5 5 M12 3l-4 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Code</a>
+        <a class="action" href="https://huggingface.co/datasets/aboots/SEMANTIX" target="_blank" rel="noopener"><span class="resource-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><ellipse cx="10" cy="4" rx="7" ry="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M3 4v11c0 3.5 14 3.5 14 0V4 M3 9c0 3.5 14 3.5 14 0" stroke="currentColor" stroke-width="1.5"/></svg></span>Dataset</a>
+        <a class="action" href="https://arxiv.org/abs/2605.30608" target="_blank" rel="noopener">arXiv</a>
+      </div>
+      <p class="hero-secondary"><a href="dataset.html">Explore the SEMANTIX dataset overview →</a></p>
+      <div class="institution-logos" aria-label="Institution logos">
+        <img src="images/logos/mpi-inf.png" alt="Max Planck Institute for Informatics" width="160" height="48">
+        <img src="images/logos/sic-logo.webp" alt="Saarland Informatics Campus" width="160" height="48">
+      </div>
+    </section>
+    <div class="page-shell">
+      <p class="draft-note"><span class="draft-dot" aria-hidden="true"></span>Working draft · Comparison and application videos are pending.</p>
+      <nav class="section-nav" aria-label="On this page">
+        <a href="#motivation">Motivation</a><a href="#abstract">Abstract</a><a href="#method">Method</a><a href="#results">Results</a><a href="#comparisons">Comparisons</a><a href="#application">Application</a><a href="#citation">Citation</a><a href="#explore-more">Explore more</a>
+      </nav>
+      <!-- STEP 2: Illustration of the paper's example in section 3.1, not a dataset sample. -->
+      <section id="motivation" class="content-section">
+        <div class="section-heading"><span class="section-number">01</span><h2>Beyond how a gesture moves</h2></div>
+        <p class="lead motivation-intro">Movement tells us what the body does. Speech helps us understand what the gesture means.</p>
+        <figure class="motivation-figure" aria-labelledby="motivation-caption">
+          <div class="motivation-demo">
+            <div class="motivation-drawing"><img src="images/motivation-gesture.svg" width="480" height="350" alt="Schematic of the example in paper section 3.1: a speaker's right hand rises to chest level with an open palm, emphasizing an increase described in speech."></div>
+            <div class="motivation-notes">
+              <div class="motivation-form"><span class="label physical-label">Physical form</span><h3>Right hand rises to chest level with open palm.</h3><p>What can we observe?</p></div>
+              <div class="motivation-intent"><span class="label intent-label">Communicative intent</span><h3>Emphasizing the increase described in speech.</h3><p>What does it convey in this context?</p></div>
+            </div>
+          </div>
+          <div class="motivation-anchor"><p class="eyebrow">Semantic motion anchor · Paper example</p><blockquote cite="https://arxiv.org/pdf/2605.30608v3#page=4"><span class="physical-highlight">Right hand rises to chest level with open palm,</span> <span class="intent-highlight">emphasizing the increase described in speech.</span></blockquote></div>
+          <figcaption id="motivation-caption">Anchor text quoted from <a href="https://arxiv.org/pdf/2605.30608v3#page=4" target="_blank" rel="noopener">Suresh et al., §3.1, p. 4</a> (<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>). Drawing adapted from that textual example; not an original paper figure or a SEMANTIX sample.</figcaption>
+        </figure>
+      </section>
+      <!-- STEP 3: Original abstract from arXiv:2605.30608v3, reproduced without wording changes. -->
+      <section id="abstract" class="content-section narrow-section">
+        <div class="section-heading"><span class="section-number">02</span><h2>Abstract</h2></div>
+        <p class="lead">Learning a shared representation between spoken text and gesture is central to co-speech gesture retrieval, synthesis, and understanding, but remains challenging for semantically meaningful gestures whose communicative intent is not captured by motion alone. Direct contrastive alignment between transcripts and continuous motion embeddings often overemphasizes low-level kinematics and misses the symbolic content of semantic gestures. We propose semantic motion anchors, natural-language abstractions of gesture motion capturing physical form and communicative intent. Our method discretizes 3D gestures into body-hand motion primitives, verbalizes them into structured descriptions, and grounds them in the transcript to provide auxiliary contrastive supervision. On BEAT2, our method improves text-to-gesture R@1 by 8.2% over a direct text-motion baseline and outperforms prior retrieval approaches on text to gesture and gesture to text retrieval directions. Beyond aggregate retrieval metrics, semantic motion anchor supervision helps retrieve gestures that are semantically meaningful for the spoken query, rather than defaulting to generic motion patterns. A downstream retrieval-augmented gesture generation study showed that users significantly preferred gestures retrieved by our approach over a retrieval-augmented generation baseline, demonstrating that semantically grounded retrieval translates to gestures that better convey communicative intent in downstream generation.</p>
+        <p class="source-note">Original abstract · <a href="https://arxiv.org/abs/2605.30608v3" target="_blank" rel="noopener">Suresh et al., arXiv v3</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
+      </section>
+      <!-- STEP 4: Overview only; construction details are on dataset.html. -->
+      <section id="method" class="content-section">
+        <div class="section-heading"><span class="section-number">03</span><h2>Method overview</h2></div>
+        <p class="lead method-intro">Learn from how a gesture moves and what it means. Retrieve gestures from speech.</p>
+        <figure class="method-figure" aria-labelledby="method-caption">
+          <div class="method-training">
+            <div class="method-band-heading"><h3><span class="method-phase">A</span>During training</h3><span class="method-badge">Anchors provide extra guidance</span></div>
+            <ol class="anchor-flow" aria-label="Generating semantic anchors">
+              <li><span class="method-step">01 · Describe movement</span><h4>Motion → physical narrative</h4><p>3D motion → body / hand tokens → movement descriptions.</p></li>
+              <li><span class="method-step">02 · Add context</span><h4>Ground in the transcript</h4><p>An LLM combines the physical narrative with the spoken words.</p></li>
+              <li class="anchor-output"><span class="method-step">03 · Produce an anchor</span><h4>Form + meaning</h4><div class="anchor-components"><span class="physical-label">Physical form</span><span class="intent-label">Communicative intent</span></div></li>
+            </ol>
+            <div class="supervision-divider"><span>Use both parts to guide alignment</span><span aria-hidden="true">↓</span></div>
+            <div class="alignment-flow" aria-label="Learning aligned motion and text representations">
+              <div class="alignment-branch motion-branch"><p class="guidance-label">Physical form guides the motion branch</p><p class="encoder-path">Gesture <span aria-hidden="true">→</span> Motion encoder</p><strong>Motion representation</strong></div>
+              <div class="alignment-link"><span aria-hidden="true">↔</span><span>Contrastive<br> alignment</span></div>
+              <div class="alignment-branch text-branch"><p class="guidance-label">Intent guides the text branch</p><p class="encoder-path">Transcript <span aria-hidden="true">→</span> Text encoder</p><strong>Text representation</strong></div>
+            </div>
+            <p class="shared-space">A shared text–motion space</p>
+          </div>
+          <div class="method-retrieval">
+            <div class="method-band-heading"><h3><span class="method-phase">B</span>At retrieval</h3><span class="method-badge">Main text–motion setting</span></div>
+            <ol class="retrieval-flow" aria-label="Text-to-gesture retrieval">
+              <li><span class="method-step">Query</span><strong>Spoken text</strong><p>Encode the transcript.</p></li>
+              <li><span class="method-step">Match</span><strong>Compare representations</strong><p>Score against stored motion embeddings.</p></li>
+              <li><span class="method-step">Retrieve</span><strong>Ranked gesture clips</strong><p>Return the closest matches.</p></li>
+            </ol>
+            <p class="retrieval-note">No anchor generation is needed for this retrieval pathway.</p>
+          </div>
+          <figcaption id="method-caption">Simplified from <a href="https://arxiv.org/pdf/2605.30608#page=5" target="_blank" rel="noopener">Figure 1 and §3</a>; retrieval follows <a href="https://arxiv.org/pdf/2605.30608#page=6" target="_blank" rel="noopener">§5.1</a>. Cross-dataset anchor-proxy variants are described in §5.4.</figcaption>
+        </figure>
+        <a class="text-link" href="dataset.html#anchor-construction">See construction details on the dataset page <span aria-hidden="true">→</span></a>
+      </section>
+      <!-- STEP 5: Keep the result tagline short, as requested. -->
+      <section id="results" class="content-section">
+        <div class="section-heading"><span class="section-number">04</span><h2>Retrieval results</h2></div>
+        <div class="result-banner"><strong>8.2% relative improvement</strong><div><p>Text-to-gesture Recall@1 on BEAT2: <b>39.1% → 42.3%</b>.</p><p class="source-note">+3.2 percentage points over the direct text–motion baseline. <a href="https://arxiv.org/pdf/2605.30608#page=6" target="_blank" rel="noopener">Table 1</a></p></div></div>
+      </section>
+      <!-- STEP 6: Replace placeholders with matched, approved video clips. -->
+      <section id="comparisons" class="content-section">
+        <div class="section-heading"><span class="section-number">05</span><h2>Qualitative comparisons</h2></div>
+        <p class="section-intro">A shared spoken query, with the reference gesture and gestures retrieved by different methods.</p>
+        <div class="query-strip"><span>Spoken query</span><p>Selected example transcript to be added.</p></div>
+        <div class="comparison-grid">
+          <article><h3>Ground truth</h3><div class="media-placeholder video-placeholder"><span class="placeholder-mark" aria-hidden="true">▧</span><strong>Reference clip</strong><span>Video pending</span></div></article>
+          <article><h3>Baseline</h3><div class="media-placeholder video-placeholder"><span class="placeholder-mark" aria-hidden="true">▧</span><strong>Retrieved clip</strong><span>Method and video pending</span></div></article>
+          <article><h3 class="accent-text">Ours</h3><div class="media-placeholder video-placeholder ours-placeholder"><span class="placeholder-mark" aria-hidden="true">▧</span><strong>Retrieved clip</strong><span>Video pending</span></div></article>
+        </div>
+      </section>
+      <!-- STEP 7: Reported retrieval preference study; video examples remain pending. -->
+      <section id="application" class="content-section">
+        <div class="section-heading"><span class="section-number">06</span><h2>Downstream application</h2></div>
+        <p class="section-intro">Retrieval-augmented gesture generation.</p>
+        <p class="lead">In a study with 32 participants, gestures retrieved by our method received a mean preference of <strong>72.2%</strong>, compared with <strong>27.8%</strong> for RAG-Gesture.</p>
+        <p class="source-note">Participants compared retrieved gestures for the same spoken query. <a href="https://arxiv.org/pdf/2605.30608#page=9" target="_blank" rel="noopener">Paper §5.5 and Figure 3</a></p>
+        <h3>Video examples</h3>
+        <div class="two-columns">
+          <article><h3>Ground truth</h3><div class="media-placeholder video-placeholder"><strong>Reference motion</strong><span>Video pending</span></div></article>
+          <article><h3 class="accent-text">Ours</h3><div class="media-placeholder video-placeholder ours-placeholder"><strong>Example clip</strong><span>Video pending</span></div></article>
+        </div>
+      </section>
+      <section id="citation" class="content-section">
+        <div class="section-heading citation-heading"><div><span class="section-number">07</span><h2>Citation</h2></div><button type="button" class="copy-button" data-copy="bibtex">Copy BibTeX</button></div>
+        <pre><code id="bibtex">@inproceedings{suresh2026semantic,
+  title = {Semantic Motion Anchors: Bridging Motion and Meaning in Co-Speech Gestures},
+  author = {Varsha Suresh and Mohammad Mahdi Abootorabi and Mohamed Salman and M. Hamza Mughal and Christian Theobalt and Ashwin Ram and J{\"u}rgen Steimle and Vera Demberg},
+  booktitle = {Proceedings of the 40th Annual Conference on Neural Information Processing Systems (NeurIPS'26)},
+  year = {2026},
+  url = {https://arxiv.org/pdf/2605.30608}
+}</code></pre>
+        <p class="source-note">Citation for NeurIPS 2026. <span id="copy-status" role="status" aria-live="polite"></span></p>
+      </section>
+      <!-- Other publications supplied by Varsha; repeated source entries removed. -->
+      <section id="explore-more" class="content-section" aria-labelledby="explore-more-title">
+        <div class="section-heading"><span class="section-number">08</span><h2 id="explore-more-title">Explore more</h2></div>
+        <p class="section-intro">More publications and datasets from Varsha Suresh and collaborators.</p>
+        <div class="publication-grid">
+          <article class="publication-card" data-publication="suresh2026motion" aria-labelledby="pub-suresh2026motion">
+            <p class="publication-meta"><time datetime="2026">2026</time><span aria-hidden="true">·</span>arXiv</p>
+            <h3 id="pub-suresh2026motion">Do Motion Tokenizers for Co-Speech Gesture Generation Encode Gesture Semantics?</h3>
+            <p class="publication-authors">Varsha Suresh · Divij Jain · Jia Liu · M Hamza Mughal · Vera Demberg</p>
+            <a class="publication-link" href="https://arxiv.org/abs/2610.03765" target="_blank" rel="noopener" aria-label="Paper: Do Motion Tokenizers for Co-Speech Gesture Generation Encode Gesture Semantics?">Paper <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="publication-card" data-publication="suresh2026modeling" aria-labelledby="pub-suresh2026modeling">
+            <p class="publication-meta"><time datetime="2026">2026</time><span aria-hidden="true">·</span>Findings of EACL</p>
+            <h3 id="pub-suresh2026modeling">Modeling Turn-Taking with Semantically Informed Gestures</h3>
+            <p class="publication-authors">Varsha Suresh · M Hamza Mughal · Christian Theobalt · Vera Demberg</p>
+            <a class="publication-link" href="https://aclanthology.org/2026.findings-eacl.106/" target="_blank" rel="noopener" aria-label="Paper: Modeling Turn-Taking with Semantically Informed Gestures">Paper <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="publication-card" data-publication="suresh2025enhancing" aria-labelledby="pub-suresh2025enhancing">
+            <p class="publication-meta"><time datetime="2025">2025</time><span aria-hidden="true">·</span>ACL</p>
+            <h3 id="pub-suresh2025enhancing">Enhancing Spoken Discourse Modeling in Language Models Using Gestural Cues</h3>
+            <p class="publication-authors">Varsha Suresh · M Hamza Mughal · Christian Theobalt · Vera Demberg</p>
+            <a class="publication-link" href="https://aclanthology.org/2025.acl-long.886/" target="_blank" rel="noopener" aria-label="Paper: Enhancing Spoken Discourse Modeling in Language Models Using Gestural Cues">Paper <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="publication-card" data-publication="ram2025gesturecoach" aria-labelledby="pub-ram2025gesturecoach">
+            <p class="publication-meta"><time datetime="2025">2025</time><span aria-hidden="true">·</span>UIST</p>
+            <h3 id="pub-ram2025gesturecoach">GestureCoach: Rehearsing for Engaging Talks with LLM-Driven Gesture Recommendations</h3>
+            <p class="publication-authors">Ashwin Ram · Varsha Suresh · Artin Saberpour Abadian · Vera Demberg · Jürgen Steimle</p>
+            <a class="publication-link" href="https://hci.cs.uni-saarland.de/projects/gesturecoach/" target="_blank" rel="noopener" aria-label="Project: GestureCoach: Rehearsing for Engaging Talks with LLM-Driven Gesture Recommendations">Project <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+        <details class="more-publications">
+          <summary><span class="more-label-closed">View 17 more publications and datasets</span><span class="more-label-open">Show fewer publications</span><span class="more-toggle" aria-hidden="true"></span></summary>
+          <div class="publication-list">
+          <article class="publication-row" data-publication="saha2026mustreason" aria-labelledby="pub-saha2026mustreason">
+            <p class="publication-meta"><time datetime="2026">2026</time><span aria-hidden="true">·</span>LREC</p>
+            <h3 id="pub-saha2026mustreason">MUStReason: A Benchmark for Diagnosing Pragmatic Reasoning in Video-LMs for Multimodal Sarcasm Detection.</h3>
+            <p class="publication-authors">Anisha Saha · Varsha Suresh · Timothy Hospedales · Vera Demberg</p>
+            <a class="publication-link" href="https://arxiv.org/abs/2510.23727" target="_blank" rel="noopener" aria-label="Paper: MUStReason: A Benchmark for Diagnosing Pragmatic Reasoning in Video-LMs for Multimodal Sarcasm Detection.">Paper <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="publication-row" data-publication="chan2026system" aria-labelledby="pub-chan2026system">
+            <p class="publication-meta"><time datetime="2026">2026</time><span aria-hidden="true">·</span>Findings of ACL</p>
+            <h3 id="pub-chan2026system">System-Mediated Attention Imbalances Make Vision-Language Models Say Yes</h3>
+            <p class="publication-authors">Tsan Tsai Chan · Varsha Suresh · Anisha Saha · Michael Hahn · Vera Demberg</p>
+            <a class="publication-link" href="https://aclanthology.org/2026.findings-acl.1940/" target="_blank" rel="noopener" aria-label="Paper: System-Mediated Attention Imbalances Make Vision-Language Models Say Yes">Paper <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="publication-row" data-publication="nakai2026generation" aria-labelledby="pub-nakai2026generation">
+            <p class="publication-meta"><time datetime="2026">2026</time><span aria-hidden="true">·</span>arXiv</p>
+            <h3 id="pub-nakai2026generation">Generation-Step-Aware Framework for Cross-Modal Representation and Control in Multilingual Speech–Text Models</h3>
+            <p class="publication-authors">Toshiki Nakai · Varsha Suresh · Vera Demberg</p>
+            <a class="publication-link" href="https://arxiv.org/abs/2601.17387" target="_blank" rel="noopener" aria-label="Paper: Generation-Step-Aware Framework for Cross-Modal Representation and Control in Multilingual Speech–Text Models">Paper <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="publication-row" data-publication="saha2026muphi" aria-labelledby="pub-saha2026muphi">
+            <p class="publication-meta"><time datetime="2026">2026</time><span aria-hidden="true">·</span>arXiv</p>
+            <h3 id="pub-saha2026muphi">MuPHI: Learning Implicit Multimodal Harm Reasoning via Semantically Grounded Reward Optimization</h3>
+            <p class="publication-authors">Anisha Saha · Varsha Suresh · Teodora Kamova · Sophia Wiedmann · Timothy Hospedales · Vera Demberg</p>
+            <a class="publication-link" href="https://arxiv.org/abs/2605.29951v1" target="_blank" rel="noopener" aria-label="Paper · v1: MuPHI: Learning Implicit Multimodal Harm Reasoning via Semantically Grounded Reward Optimization">Paper · v1 <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="publication-row" data-publication="mughal2026dnd" aria-labelledby="pub-mughal2026dnd">
+            <p class="publication-meta"><time datetime="2026">2026</time><span aria-hidden="true">·</span>Edmond · Dataset</p>
+            <h3 id="pub-mughal2026dnd">DnD Group Gesture Dataset</h3>
+            <p class="publication-authors">Muhammad Hamza Mughal · Rishabh Dabral · Ikhsanul Habibie · Lucia Donatelli · Marc Habermann · Varsha Suresh · Vera Demberg · Christian Theobalt</p>
+            <a class="publication-link" href="https://doi.org/10.17617/3.IPFYCC" target="_blank" rel="noopener" aria-label="Dataset: DnD Group Gesture Dataset">Dataset <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="publication-row" data-publication="mukhametsharip2026pragmatch" aria-labelledby="pub-mukhametsharip2026pragmatch">
+            <p class="publication-meta"><time datetime="2026">2026</time><span aria-hidden="true">·</span>arXiv</p>
+            <h3 id="pub-mukhametsharip2026pragmatch">PragMatch: Separating Pragmatic Incongruity from Cross-Modal Mismatch in Large Vision-Language Models</h3>
+            <p class="publication-authors">Zhanna Mukhametsharip · Vera Demberg · Varsha Suresh</p>
+            <a class="publication-link" href="https://arxiv.org/abs/2608.09772" target="_blank" rel="noopener" aria-label="Paper: PragMatch: Separating Pragmatic Incongruity from Cross-Modal Mismatch in Large Vision-Language Models">Paper <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="publication-row" data-publication="yung2025synthetic" aria-labelledby="pub-yung2025synthetic">
+            <p class="publication-meta"><time datetime="2025">2025</time><span aria-hidden="true">·</span>SIGDial</p>
+            <h3 id="pub-yung2025synthetic">Synthetic Data Augmentation for Cross-domain Implicit Discourse Relation Recognition</h3>
+            <p class="publication-authors">Frances Yung · Varsha Suresh · Zaynab Reza · Mansoor Ahmad · Vera Demberg</p>
+            <a class="publication-link" href="https://aclanthology.org/2025.sigdial-1.13/" target="_blank" rel="noopener" aria-label="Paper: Synthetic Data Augmentation for Cross-domain Implicit Discourse Relation Recognition">Paper <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="publication-row" data-publication="bhoi2025hybrid" aria-labelledby="pub-bhoi2025hybrid">
+            <p class="publication-meta"><time datetime="2025">2025</time><span aria-hidden="true">·</span>ECAI</p>
+            <h3 id="pub-bhoi2025hybrid">Hybrid Multi-view Approach Towards Augmenting Large Language Models for Human Activity Recognition</h3>
+            <p class="publication-authors">Suman Bhoi · Varsha Suresh · Hsu Wynne · Lee Mong Li</p>
+            <a class="publication-link" href="https://doi.org/10.3233/FAIA250926" target="_blank" rel="noopener" aria-label="Paper: Hybrid Multi-view Approach Towards Augmenting Large Language Models for Human Activity Recognition">Paper <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="publication-row" data-publication="suresh2024adapter" aria-labelledby="pub-suresh2024adapter">
+            <p class="publication-meta"><time datetime="2024">2024</time><span aria-hidden="true">·</span>ICASSP</p>
+            <h3 id="pub-suresh2024adapter">An Adapter-Based Unified Model for Multiple Spoken Language Processing Tasks</h3>
+            <p class="publication-authors">Varsha Suresh · Salah Aït-Mokhtar · Caroline Brun · Ioan Calapodescu</p>
+            <a class="publication-link" href="https://arxiv.org/abs/2406.14747" target="_blank" rel="noopener" aria-label="Paper: An Adapter-Based Unified Model for Multiple Spoken Language Processing Tasks">Paper <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="publication-row" data-publication="suresh2023critically" aria-labelledby="pub-suresh2023critically">
+            <p class="publication-meta"><time datetime="2023">2023</time><span aria-hidden="true">·</span>arXiv</p>
+            <h3 id="pub-suresh2023critically">Critically examining the Domain Generalizability of Facial Expression Recognition models</h3>
+            <p class="publication-authors">Varsha Suresh · Gerard Yeo · Desmond C Ong</p>
+            <a class="publication-link" href="https://arxiv.org/abs/2106.15453v2" target="_blank" rel="noopener" aria-label="Paper · v2: Critically examining the Domain Generalizability of Facial Expression Recognition models">Paper · v2 <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="publication-row" data-publication="shi2022shape" aria-labelledby="pub-shi2022shape">
+            <p class="publication-meta"><time datetime="2022">2022</time><span aria-hidden="true">·</span>PerCom Workshops</p>
+            <h3 id="pub-shi2022shape">Shape-Based Conditional Neural Field for Wrist-Worn Change-Point Detection</h3>
+            <p class="publication-authors">Yuang Shi · Varsha Suresh · Wei Tsang Ooi</p>
+            <a class="publication-link" href="https://github.com/Shiyuang-scu/ShapeCNF" target="_blank" rel="noopener" aria-label="Code: Shape-Based Conditional Neural Field for Wrist-Worn Change-Point Detection">Code <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="publication-row" data-publication="suresh2022using" aria-labelledby="pub-suresh2022using">
+            <p class="publication-meta"><time datetime="2022">2022</time><span aria-hidden="true">·</span>ACII</p>
+            <h3 id="pub-suresh2022using">Using Positive Matching Contrastive Loss with Facial Action Units to mitigate bias in Facial Expression Recognition</h3>
+            <p class="publication-authors">Varsha Suresh · Desmond C Ong</p>
+            <a class="publication-link" href="https://arxiv.org/abs/2303.04896" target="_blank" rel="noopener" aria-label="Paper: Using Positive Matching Contrastive Loss with Facial Action Units to mitigate bias in Facial Expression Recognition">Paper <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="publication-row" data-publication="suresh2022context" aria-labelledby="pub-suresh2022context">
+            <p class="publication-meta"><time datetime="2022">2022</time><span aria-hidden="true">·</span>ACII Workshops and Demos</p>
+            <h3 id="pub-suresh2022context">Context-Dependent Deep Learning for Affective Computing</h3>
+            <p class="publication-authors">Varsha Suresh</p>
+            <a class="publication-link" href="https://acii-conf.net/2022/attend/program/doctoral-consortium/" target="_blank" rel="noopener" aria-label="Conference program: Context-Dependent Deep Learning for Affective Computing">Conference program <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="publication-row" data-publication="suresh2021using" aria-labelledby="pub-suresh2021using">
+            <p class="publication-meta"><time datetime="2021">2021</time><span aria-hidden="true">·</span>ACII</p>
+            <h3 id="pub-suresh2021using">Using knowledge-embedded attention to augment pre-trained language models for fine-grained emotion recognition</h3>
+            <p class="publication-authors">Varsha Suresh · Desmond C Ong</p>
+            <a class="publication-link" href="https://arxiv.org/abs/2108.00194" target="_blank" rel="noopener" aria-label="Paper: Using knowledge-embedded attention to augment pre-trained language models for fine-grained emotion recognition">Paper <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="publication-row" data-publication="kong2021systematic" aria-labelledby="pub-kong2021systematic">
+            <p class="publication-meta"><time datetime="2021">2021</time><span aria-hidden="true">·</span>arXiv</p>
+            <h3 id="pub-kong2021systematic">A systematic evaluation of domain adaptation in facial expression recognition</h3>
+            <p class="publication-authors">Yan San Kong · Varsha Suresh · Jonathan Soh · Desmond C Ong</p>
+            <a class="publication-link" href="https://arxiv.org/abs/2106.15453v1" target="_blank" rel="noopener" aria-label="Paper · v1: A systematic evaluation of domain adaptation in facial expression recognition">Paper · v1 <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="publication-row" data-publication="suresh2021not" aria-labelledby="pub-suresh2021not">
+            <p class="publication-meta"><time datetime="2021">2021</time><span aria-hidden="true">·</span>EMNLP</p>
+            <h3 id="pub-suresh2021not">Not all negatives are equal: Label-aware contrastive loss for fine-grained text classification</h3>
+            <p class="publication-authors">Varsha Suresh · Desmond C Ong</p>
+            <a class="publication-link" href="https://aclanthology.org/2021.emnlp-main.359/" target="_blank" rel="noopener" aria-label="Paper: Not all negatives are equal: Label-aware contrastive loss for fine-grained text classification">Paper <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="publication-row" data-publication="shree2016novel" aria-labelledby="pub-shree2016novel">
+            <p class="publication-meta"><time datetime="2016">2016</time><span aria-hidden="true">·</span>INDICON</p>
+            <h3 id="pub-shree2016novel">A novel technique for identifying attentional selection in a dichotic environment</h3>
+            <p class="publication-authors">Priya Shree · Piyush Swami · Varsha Suresh · Tapan Kumar Gandhi</p>
+            <a class="publication-link" href="https://doi.org/10.1109/INDICON.2016.7838885" target="_blank" rel="noopener" aria-label="Publisher: A novel technique for identifying attentional selection in a dichotic environment">Publisher <span aria-hidden="true">↗</span></a>
+          </article>
+          </div>
+        </details>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="page-shell footer-inner"><span>Semantic Motion Anchors · SEMANTIX</span><span>Page layout inspired by <a href="https://nerfies.github.io/" target="_blank" rel="noopener">Nerfies</a> and <a href="https://anisha0325.github.io/MUStReason-Project/" target="_blank" rel="noopener">MUStReason</a>.</span><span class="footer-credit">Earlier layout adapted from <a href="https://vcai.mpi-inf.mpg.de/projects/RAG-Gesture/">RAG-Gesture</a> · Spatial by <a href="https://templated.co/">TEMPLATED</a> · <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a></span></div></footer>
+</body>
+</html>
