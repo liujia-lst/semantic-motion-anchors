@@ -1,0 +1,49 @@
+/* Accessible, responsive overview of anchor supervision and retrieval. */
+.site-draft .method-intro { max-width: 860px; margin-bottom: 26px; }
+.site-draft .method-figure { margin: 0 0 13px; border: 1px solid var(--line); border-radius: 9px; overflow: hidden; }
+.method-training, .method-retrieval { padding: 23px 26px; }
+.method-training { background: #fafbfd; }
+.method-band-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 20px; }
+.site-draft .method-band-heading h3 { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 17px; }
+.method-phase { display: inline-flex; align-items: center; justify-content: center; width: 25px; height: 25px; border-radius: 50%; background: var(--ink); color: #fff; font-size: 11px; letter-spacing: 0; }
+.method-badge { color: var(--muted); font-size: 11px; }
+.site-draft .anchor-flow, .site-draft .retrieval-flow { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 28px; list-style: none; padding: 0; margin: 0; }
+.anchor-flow > li, .retrieval-flow > li { position: relative; min-width: 0; padding: 15px 16px; margin: 0; border: 1px solid var(--line); border-radius: 6px; background: white; }
+.anchor-flow > li + li::before, .retrieval-flow > li + li::before { content: "→"; position: absolute; left: -25px; top: 50%; transform: translateY(-50%); width: 20px; text-align: center; color: #698298; font-size: 20px; }
+.method-step { display: block; color: var(--muted); font-size: 10px; letter-spacing: .04em; font-weight: 650; margin-bottom: 8px; }
+.site-draft .anchor-flow h4 { color: var(--ink); font: 650 14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; text-transform: none; letter-spacing: -.015em; margin: 0 0 8px; }
+.site-draft .anchor-flow p, .site-draft .retrieval-flow p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.anchor-components { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.anchor-components span { padding: 2px 7px; border-radius: 3px; font-size: 11px; line-height: 1.6; font-weight: 600; }
+.supervision-divider { display: flex; align-items: center; justify-content: center; gap: 9px; padding: 12px 0; color: var(--muted); font-size: 11px; }
+.supervision-divider > span:last-child { font-size: 19px; line-height: 1; }
+.alignment-flow { display: grid; grid-template-columns: minmax(0,1fr) 102px minmax(0,1fr); align-items: stretch; }
+.alignment-branch { border: 1px solid #c9d9e9; border-radius: 6px; text-align: center; background: #fff; overflow: hidden; padding-bottom: 13px; }
+.text-branch { border-color: #c8ded4; }
+.site-draft .guidance-label { padding: 8px 10px; color: var(--blue); background: var(--pale); border-bottom: 1px dashed #b9cde1; font-size: 11px; line-height: 1.5; margin: 0 0 12px; }
+.text-branch .guidance-label { color: var(--green); background: var(--green-pale); border-color: #b9d4c8; }
+.site-draft .encoder-path { font-size: 12px; margin: 0 8px 3px; color: var(--muted); }
+.encoder-path span { margin: 0 5px; }
+.alignment-branch strong { color: var(--ink); display: block; padding: 0 8px; font-size: 14px; font-weight: 650; }
+.alignment-link { display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--muted); font-size: 10px; line-height: 1.4; text-align: center; }
+.alignment-link > span:first-child { font-size: 29px; color: var(--blue); margin-bottom: 5px; }
+.site-draft .shared-space { text-align: center; font-size: 11px; font-weight: 600; color: #4d6377; letter-spacing: .04em; margin: 11px 0 0; }
+.method-retrieval { border-top: 1px solid var(--line); }
+.retrieval-flow > li { background: #f8fafc; border-color: transparent; padding: 12px 16px; }
+.retrieval-flow strong { display: block; color: var(--ink); font-size: 14px; font-weight: 650; line-height: 1.4; margin: 0 0 5px; }
+.site-draft .retrieval-note { color: var(--muted); font-size: 12px; margin: 14px 0 0; }
+.site-draft .method-figure figcaption { padding: 12px 26px; background: #f6f8fa; border-top: 1px solid var(--line); font-size: 11px; line-height: 1.7; color: var(--muted); }
+@media (max-width: 700px) {
+  .method-training, .method-retrieval { padding: 20px; }
+  .method-band-heading { flex-wrap: wrap; align-items: flex-start; gap: 6px; }
+  .method-badge { margin-left: 35px; }
+  .site-draft .anchor-flow, .site-draft .retrieval-flow { grid-template-columns: 1fr; gap: 27px; }
+  .anchor-flow > li + li::before, .retrieval-flow > li + li::before { content: "↓"; top: -26px; left: calc(50% - 10px); transform: none; line-height: 25px; }
+  .anchor-components { flex-direction: row; flex-wrap: wrap; }
+  .alignment-flow { grid-template-columns: 1fr; }
+  .alignment-link { flex-direction: row; gap: 8px; padding: 10px 0; }
+  .alignment-link > span:first-child { display: block; transform: rotate(90deg); font-size: 24px; margin: 0; }
+  .alignment-link br { display: none; }
+  .supervision-divider { padding: 16px 0; }
+  .site-draft .method-figure figcaption { padding: 13px 20px; }
+}

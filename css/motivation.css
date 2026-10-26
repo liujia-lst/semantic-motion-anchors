@@ -1,0 +1,28 @@
+/* The homepage concept illustration. Text reflows separately from the drawing. */
+.site-draft .motivation-intro { max-width: 850px; margin-bottom: 26px; }
+.site-draft .motivation-figure { margin: 0; border: 1px solid var(--line); border-radius: 9px; overflow: hidden; }
+.motivation-demo { display: grid; grid-template-columns: 1.06fr 1fr; align-items: center; gap: 20px; background: #fafbfd; padding: 18px 28px 18px 8px; }
+.motivation-drawing { min-width: 0; }
+.motivation-drawing img { display: block; width: 100%; height: auto; }
+.motivation-notes { display: grid; gap: 15px; padding: 14px 0; }
+.motivation-notes > div { padding: 18px 20px; border-radius: 6px; }
+.motivation-form { background: var(--pale); border-left: 3px solid var(--blue); }
+.motivation-intent { background: var(--green-pale); border-left: 3px solid var(--green); }
+.motivation-notes h3 { margin: 3px 0 7px; font-size: 19px; font-weight: 600; line-height: 1.4; }
+.motivation-notes p { margin: 0; font-size: 12px; color: var(--muted); }
+.motivation-notes .label { margin-bottom: 4px; }
+.motivation-anchor { border-top: 1px solid var(--line); padding: 23px 30px 25px; }
+.motivation-anchor .eyebrow { margin-bottom: 13px; font-size: 10px; }
+.site-draft .motivation-anchor blockquote { border: none; padding: 0; margin: 0; font-style: normal; font-size: 19px; line-height: 1.9; letter-spacing: -.01em; }
+.site-draft .motivation-figure figcaption { padding: 13px 30px; background: #f6f8fa; border-top: 1px solid var(--line); font-size: 11px; line-height: 1.7; color: var(--muted); }
+.motivation-figure figcaption a { display: inline-block; }
+@media (max-width: 700px) {
+  .motivation-demo { grid-template-columns: 1fr; gap: 0; padding: 8px 18px 18px; }
+  .motivation-drawing { max-width: 430px; width: 100%; margin: 0 auto; }
+  .motivation-notes { gap: 12px; padding: 0; }
+  .motivation-notes > div { padding: 16px; }
+  .motivation-notes h3 { font-size: 17px; }
+  .motivation-anchor { padding: 21px 20px; }
+  .site-draft .motivation-anchor blockquote { font-size: 17px; }
+  .site-draft .motivation-figure figcaption { padding: 13px 20px; }
+}

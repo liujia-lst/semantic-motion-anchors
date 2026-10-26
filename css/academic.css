@@ -1,0 +1,103 @@
+/* Academic paper-page layout, inspired by the Nerfies and MUStReason references.
+   The existing paper text, diagrams and numerical results are retained. */
+:root { --ink: #30343b; --muted: #626873; --blue: #3273a6; --pale: #f2f6fa; --line: #e6e8eb; }
+html { scroll-padding-top: 28px; }
+body.site-draft { font-family: Arial, Helvetica, sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+.site-draft h1, .site-draft h2, .site-draft h3, .site-draft h4 { font-family: inherit; font-weight: 600; text-transform: none; }
+.site-draft figure { margin: 0; }
+.site-draft h4 { margin: 0 0 10px; }
+.site-draft img { max-width: 100%; }
+.site-draft sup { font-size: .65em; vertical-align: super; line-height: 0; }
+.site-draft blockquote { margin: 0; }
+.page-shell { width: min(1080px, calc(100% - 64px)); }
+.paper-nav { padding: 16px 24px 0; }
+.paper-nav nav { display: flex; justify-content: center; align-items: center; gap: 28px; flex-wrap: wrap; }
+.paper-nav a { color: #626873; text-decoration: none; font-size: 14px; line-height: 1.5; padding: 6px 0; }
+.paper-nav a:hover, .paper-nav a[aria-current] { color: var(--blue); }
+.hero { padding: 46px 0 38px; }
+.site-draft .hero h1 { max-width: 1040px; margin: 0 auto 22px; font-size: clamp(33px, 4vw, 48px); font-weight: 650; line-height: 1.15; letter-spacing: -.035em; }
+.hero .title-subline { margin-top: 4px; font-size: 1em; line-height: inherit; font-weight: inherit; text-wrap: balance; }
+.hero .desktop-break { display: none; }
+.site-draft .publication-venue { margin: 0 auto 24px; font-size: 24px; line-height: 1.4; font-weight: 500; }
+.site-draft .authors { max-width: 1030px; margin: 0 auto 14px; font-size: 17px; font-weight: 400; color: var(--blue); line-height: 1.85; }
+.site-draft .affiliations { max-width: 930px; margin: 0 auto 20px; font-size: 15px; line-height: 1.9; color: #484f58; }
+.site-draft .affiliations > span { font-size: 12px; }
+.author-funding { margin: 0 auto 22px; max-width: 850px; font-size: 11px !important; }
+.hero-actions { gap: 8px; }
+.site-draft .hero-actions .action { min-height: 42px; padding: 9px 18px; color: #fff; background: #363636; border: 1px solid #363636; border-radius: 999px; font-size: 15px; font-weight: 400; line-height: 1.4; }
+.site-draft .hero-actions .action:hover { background: #202020; border-color: #202020; }
+.resource-icon { display: inline-flex; align-items: center; justify-content: center; width: 17px; height: 17px; flex: none; }
+.resource-icon svg { width: 100%; height: 100%; }
+.hero-secondary { margin-top: 15px !important; font-size: 13px !important; }
+.hero-secondary a { text-decoration: none; }
+.institution-logos { margin-top: 25px; gap: 32px; }
+.institution-logos img { height: 31px; }
+.site-draft .draft-note { justify-content: center; max-width: 850px; margin: 0 auto; padding: 9px 14px; background: #fafafa; font-size: 11px; }
+.section-nav { justify-content: center; gap: 15px 23px; border-bottom: 0; padding: 20px 0 10px; }
+.section-nav a { color: #6c727b; font-size: 12px; font-weight: 400; }
+.section-nav a:hover { color: var(--blue); }
+.content-section { padding: 48px 0; border: 0; }
+.content-section .section-number { display: none; }
+.section-heading { justify-content: center; margin-bottom: 25px; }
+.site-draft .content-section h2 { font-size: clamp(26px, 3vw, 32px); font-weight: 600; letter-spacing: -.02em; text-align: center; }
+.site-draft .section-intro { text-align: center; max-width: 850px; margin: 0 auto 25px; }
+.site-draft .lead { font-size: 18px; line-height: 1.8; }
+.motivation-intro, .method-intro, .construction-intro { text-align: center; margin-left: auto !important; margin-right: auto !important; }
+#abstract { background: #f7f7f7; padding: 44px 50px; margin: 14px 0 8px; border-radius: 3px; }
+#abstract .lead { max-width: 880px; margin: 0 auto; font-size: 17px; line-height: 1.85; text-align: justify; }
+#abstract .source-note { max-width: 880px; margin-left: auto; margin-right: auto; }
+.motivation-figure, .method-figure, .construction-figure, .generation-figure { box-shadow: none !important; }
+.motivation-demo, .method-training, .construction-body { background: #fafafa; }
+.comparison-grid > article > h3, .two-columns > article > h3 { text-align: center; font-size: 17px; }
+.result-banner { max-width: 960px; margin: 0 auto; }
+#application > .lead, #application > .source-note { max-width: 950px; margin-left: auto; margin-right: auto; }
+#application > h3 { margin: 28px 0 16px; text-align: center; }
+.citation-heading { justify-content: space-between; }
+.citation-heading h2 { text-align: left !important; }
+.site-draft pre { background: #f5f5f5; border-color: #e9e9e9; }
+#explore-more { border-top: 1px solid var(--line); }
+.publication-card { background: #fafafa; border-color: #e4e7ea; }
+.site-draft .publication-card h3 { font-size: 19px; }
+.site-footer { background: #fafafa; border-top: 0; padding: 30px 0; }
+.footer-inner { display: block; text-align: center; font-size: 11px; line-height: 1.8; }
+.footer-inner > span { display: block; margin: 5px 0; }
+.footer-credit { color: #79808a; }
+.dataset-hero { padding-top: 55px; padding-bottom: 36px; }
+.site-draft .dataset-hero h1 { font-size: clamp(48px, 7vw, 68px); letter-spacing: -.04em; color: var(--ink); }
+.site-draft .dataset-tagline { font-size: 23px; }
+.site-draft .hero-summary { font-size: 16px; max-width: 660px; }
+.resources-list { max-width: 880px; margin: 0 auto; }
+.resources-list h3 { font-size: 18px; }
+.resources-list a { font-weight: 500; }
+@media (max-width: 800px) {
+  .page-shell { width: calc(100% - 40px); }
+  .hero { padding-top: 35px; }
+  .authors br { display: none; }
+  .site-draft .authors { font-size: 16px; }
+  #abstract { padding: 36px 28px; }
+}
+@media (max-width: 600px) {
+  html { scroll-padding-top: 20px; }
+  .paper-nav { padding-top: 12px; }
+  .paper-nav nav { gap: 22px; }
+  .paper-nav a { font-size: 12px; }
+  .hero { padding: 30px 0; }
+  .site-draft .hero h1 { font-size: 33px; line-height: 1.18; letter-spacing: -.03em; }
+  .site-draft .publication-venue { font-size: 21px; margin-bottom: 22px; }
+  .site-draft .authors { font-size: 15px; line-height: 1.9; }
+  .site-draft .affiliations { font-size: 12px; line-height: 1.9; }
+  .hero-actions { gap: 8px; }
+  .site-draft .hero-actions .action { padding: 9px 15px; font-size: 14px; }
+  .institution-logos img { height: 27px; }
+  .content-section { padding: 35px 0; }
+  .site-draft .content-section h2 { font-size: 27px; }
+  #abstract { padding: 30px 20px; }
+  #abstract .lead { font-size: 16px; line-height: 1.8; text-align: left; }
+  .site-draft .dataset-hero h1 { font-size: 52px; }
+  .site-draft .dataset-tagline { font-size: 21px !important; }
+  .site-draft .hero-summary { font-size: 15px; }
+  .citation-heading { gap: 18px; }
+  .site-draft .draft-note { text-align: center; align-items: flex-start; }
+  .draft-dot { margin-top: 6px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
